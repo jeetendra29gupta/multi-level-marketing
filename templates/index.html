@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %} Multi Level Marketing Application with Python/Flask {% endblock %}
+
+{% block content %}
+
+{% include 'header.html' %}
+{% include 'navigation.html' %}
+{% include 'message.html' %}
+
+<div class="w3-container w3-padding-16 w3-center">
+    <h1>Welcome to the Multi-Level Marketing System</h1>
+    <p><strong>Grow your business by building a strong team!</strong></p>
+</div>
+
+<ul class="w3-ul w3-hoverable w3-center w3-serif w3-large" style="width:60%;margin:0 auto;">
+    {% for data in result %}
+    <li><strong> Distributor: {{data[0]}}, Total Commission: {{data[1]}} </strong></li>
+    {% endfor %}
+
+</ul>
+{% endblock %}

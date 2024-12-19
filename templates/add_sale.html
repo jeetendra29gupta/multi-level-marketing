@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block title %} Multi Level Marketing Application with Python/Flask {% endblock %}
+
+{% block content %}
+
+{% include 'header.html' %}
+{% include 'navigation.html' %}
+{% include 'message.html' %}
+
+<div class="w3-container w3-padding-16">
+    <h2 class="w3-center">Add New Sale</h2>
+
+    <form action="/add_sale" method="POST" class="w3-card w3-round w3-padding w3-light-blue w3-margin-top"
+          style="width:50%;margin:0 auto;">
+        <br>
+
+        <label for="distributor_id"><strong>Distributor Name:</strong></label><br>
+        <select class="w3-select w3-border w3-margin-bottom w3-round" id="distributor_id" name="distributor_id" required>
+            <option value="" disabled selected>Choose your option</option>
+            {% for distributor in distributors %}
+            <option value="{{ distributor.id }}">{{ distributor.distributor_name }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="product_id"><strong>Product Name:</strong></label><br>
+        <select class="w3-select w3-border w3-margin-bottom w3-round" id="product_id" name="product_id" required>
+            <option value="" disabled selected>Choose your option</option>
+            {% for product in products %}
+            <option value="{{ product.id }}">{{ product.product_name }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit" class="w3-button w3-block w3-blue w3-round">Add Sale</button>
+        <br>
+    </form>
+</div>
+
+{% endblock %}

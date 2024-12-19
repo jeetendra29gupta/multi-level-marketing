@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block title %} Multi Level Marketing Application with Python/Flask {% endblock %}
+
+{% block content %}
+
+{% include 'header.html' %}
+{% include 'navigation.html' %}
+{% include 'message.html' %}
+<div class="w3-container w3-padding-16" style="width:60%;margin:0 auto;">
+
+    <h2 class="w3-center">List of Commissions</h2>
+
+    <div class="w3-section ">
+        <input class="w3-input w3-border w3-round w3-margin-bottom">
+    </div>
+
+    <table class="w3-table-all w3-hoverable">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Seller</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Commission</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for commission in commissions %}
+        <tr>
+            <td>{{ commission.id }}</td>
+            <td>{{ commission.distributor.distributor_name }}</td>
+            <td>{{ commission.sale.product.product_name }}</td>
+            <td>{{ commission.sale.product_price }}</td>
+            <td>{{ commission.commission }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}
